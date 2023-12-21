@@ -1,0 +1,25 @@
+language: php
+php:
+- 5.6
+- 7.0
+- 7.1
+- 7.2
+- hhvm
+before_script:
+- composer self-update
+- composer require satooshi/php-coveralls:* --dev
+script:
+- mkdir build
+- mkdir build/coverage
+- composer unit
+notifications:
+  email:
+    recipients:
+    - external-ci-notifications+braintreehttp@getbraintree.com
+    on_success: change
+
+jobs:
+  include:
+    - stage: integration
+      script: composer integration
+      php: 7.0

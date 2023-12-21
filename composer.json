@@ -1,0 +1,38 @@
+{
+  "name": "tjure/paypal-php-sdk",
+  "type": "library",
+  "license": "MIT",
+  "description": "The PHP Http client. The fork of paypal/PayPal-PHP-SDK",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/tjure/braintreehttp_php"
+    }
+  ],
+  "require": {
+    "tjure/braintreehttp": "^0.3.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.6.8",
+    "mockery/mockery": "^0.9.9",
+    "wiremock-php/wiremock-php":"2.35.1"
+  },
+  "autoload": {
+    "psr-0": {
+      "PayPal": "lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-0": {
+    	"PayPal": "tests/"
+    },
+    "files": [
+      "tests/bootstrap.php",
+      "tests/Test/TestHarness.php"
+    ]
+  },
+  "scripts": {
+    "unit": "phpunit --testsuite unit",
+    "integration": "phpunit --testsuite integration"
+  }
+}
